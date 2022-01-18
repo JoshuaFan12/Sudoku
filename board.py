@@ -180,45 +180,45 @@ class Board:
                if self.possibility[row-1][col-1][i] != self.board[row-1][col-1]:
                    self.possibility[row - 1][col - 1][i] = '.'
 
-    def checkPair(self, rowNum, colNum):
-        defaulposs = ['.']*9
-        row = self.getRow(rowNum)
-        col = self.getColumn(colNum)
-        square = self.getSquare(rowNum, colNum)
-        if self.board[rowNum-1][colNum-1] != '.':
-            return None
-        # logic unique: in any row/column/square. if x,y, so on can only appear in 2 spots, it must appear in those two spots
-        # all other possibilities should be set to empty
-        pos = []
-        for i in range(1, 10):
-            if f'{i}' in self.board[rowNum-1][colNum-1]:
-                pos.append(f'{i}')
-        rdata = defaultdict(list)
-        cdata = defaultdict(list)
-        sdata = defaultdict(list)
-        sposs = self.getSquarePoss(rowNum, colNum)
-        for item in pos:
-            for ind in range(9):
-                if row[ind] == '.':
-                    if item in self.possibility[rowNum-1][ind]:
-                        rdata[item].append(ind)
-
-                if col[ind] == '.':
-                    if item in self.possibility[ind][colNum]:
-                        cdata[item].append(ind)
-
-                if square[ind] == '.':
-                    if item in sposs:
-                        sdata[item].append(ind)
-
-        for key in rdata.keys():
-            if len(rdata[key]) == 2:
-
-
-
-
-
-        # logic perfect: (maybe another function). in any row/column/square if x, y, so on appear in exactly 2 spots,
-        # it can only appear in those two spots. x, y, so on in other squares should be set to 0
+    # def checkPair(self, rowNum, colNum):
+    #     defaulposs = ['.']*9
+    #     row = self.getRow(rowNum)
+    #     col = self.getColumn(colNum)
+    #     square = self.getSquare(rowNum, colNum)
+    #     if self.board[rowNum-1][colNum-1] != '.':
+    #         return None
+    #     # logic unique: in any row/column/square. if x,y, so on can only appear in 2 spots, it must appear in those two spots
+    #     # all other possibilities should be set to empty
+    #     pos = []
+    #     for i in range(1, 10):
+    #         if f'{i}' in self.board[rowNum-1][colNum-1]:
+    #             pos.append(f'{i}')
+    #     rdata = defaultdict(list)
+    #     cdata = defaultdict(list)
+    #     sdata = defaultdict(list)
+    #     sposs = self.getSquarePoss(rowNum, colNum)
+    #     for item in pos:
+    #         for ind in range(9):
+    #             if row[ind] == '.':
+    #                 if item in self.possibility[rowNum-1][ind]:
+    #                     rdata[item].append(ind)
+    #
+    #             if col[ind] == '.':
+    #                 if item in self.possibility[ind][colNum]:
+    #                     cdata[item].append(ind)
+    #
+    #             if square[ind] == '.':
+    #                 if item in sposs:
+    #                     sdata[item].append(ind)
+    #
+    #     for key in rdata.keys():
+    #         if len(rdata[key]) == 2:
+    #
+    #
+    #
+    #
+    #
+    #     # logic perfect: (maybe another function). in any row/column/square if x, y, so on appear in exactly 2 spots,
+    #     # it can only appear in those two spots. x, y, so on in other squares should be set to 0
 
         
